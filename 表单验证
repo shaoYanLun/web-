@@ -11,8 +11,9 @@ function validate(){
 	var password=document.getElementById("password").value;
 	var password2=document.getElementById("password2").value;
 	// var reg=/^[a-zA-Z0-9_]*$/;
-	 var reg=/^09\d{8}$/;  
-
+	
+	var reg = / ^ 09 \ d {8} $ /;  
+	
 
 
 	if(name==""){
