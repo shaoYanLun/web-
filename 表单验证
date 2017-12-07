@@ -1,0 +1,102 @@
+<html>
+<head>
+<script type="text/javascript">
+function validate(){
+	var name=document.getElementById('fname').value;
+	var age=document.getElementById("age").value;
+	var email=document.getElementById("email").value;
+	var phone=document.getElementById("phone").value;
+	var at=email.indexOf("@");
+	var point=email.indexOf(".");
+	var password=document.getElementById("password").value;
+	var password2=document.getElementById("password2").value;
+	// var reg=/^[a-zA-Z0-9_]*$/;
+	 var reg=/^09\d{8}$/;  
+
+
+
+	if(name==""){
+		alert("请输入用户名");
+		document.getElementById('fname').focus();
+		return false;
+	}else{
+		if(name.length>10||name.length<2){
+			alert("请输入有效的名字");
+			document.getElementById('fname').focus();
+			return false;
+		}
+	}
+
+	if(age==""){
+		alert("请输入年龄");
+		document.getElementById("age").focus();
+		return false;
+
+	}else{
+
+		if(isNaN(age)||age<=0||age>100){
+			alert("请输入有效的年龄");
+			document.getElementById("age").focus();
+			return false;
+		}
+	}
+
+	// if(phone.length<6){
+ //        alert("請輸入有效的電話號");
+ //        document.getElementById("phone").focus();
+ //        return false;
+ //    }
+    if (!reg.test(phone)){
+      alert("請輸入正確的電話號")
+      document.getElementById("phone").focus();
+      return false;
+    }
+
+
+	if(email==""){
+		alert("请输入邮箱地址");
+		document.getElementById("email").focus();
+		return false;
+	}else{
+		if(at==-1||point==-1){
+			alert("请输入有效的邮箱地址");
+			document.getElementById("email").focus();
+			return false;
+		}
+	}
+
+	// 判断密码
+	if(password==""){
+		alert("请输入密码");
+		document.getElementById("password").focus();
+		return false;
+	}else{
+		if(!/^[a-zA-Z0-9_]{8,16}$/.test(password)){
+			alert("请输入有效的密码");
+			document.getElementById("password").focus();
+			return false;
+		}
+	}
+	
+
+}
+
+</script>
+</head>
+
+<body>
+<form action="" onsubmit="return validate()">
+	name：<input type="text" id="fname" size="20" ><br />
+	age：<input type="text" id="age" size="20"><br />
+	phone: <input type="text" id="phone" size="20"><br>	
+	E-mail：<input type="text" id="email" size="20"><br />
+	password：<input type="password" id="password"size="20"><br>
+	password2: <input type="password" id="password2" size="20">
+	<br>
+
+	<br />
+	<input type="submit" value="提交"> 
+</form>
+</body>
+
+</html>
